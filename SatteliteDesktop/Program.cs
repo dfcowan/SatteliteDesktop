@@ -1,8 +1,11 @@
-﻿using System;
+﻿using SixLabors.Fonts;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.Primitives;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace SatteliteDesktop
@@ -17,11 +20,19 @@ namespace SatteliteDesktop
             Directory.CreateDirectory("c:\\temp\\SatteliteDesktop");
             try
             {
-                byte[] img = GetImage().Result;
                 string imageFileName = $"c:\\temp\\SatteliteDesktop\\goes16_abi_conus_geocolor_5000x3000_{DateTime.Now:yyyyMMddHHmm}.jpg";
-                File.WriteAllBytes(imageFileName, img);
-                SetImage(imageFileName);
 
+                byte[] original = GetImage().Result;
+
+                Font font = SystemFonts.CreateFont("Consolas", 100);
+
+                using (var img = Image.Load(original))
+                {
+                    img.Mutate(x => x.DrawText(DateTime.Now.ToString("yyyy-MM-dd HH:mm"), font, Color.White.WithAlpha(0.7f), new PointF(100, img.Height - 400)));
+                    img.Save(imageFileName);
+                }
+
+                SetImage(imageFileName);
                 DeleteOldFiles();
 
                 return 0;
@@ -57,7 +68,7 @@ namespace SatteliteDesktop
             foreach (string fileName in Directory.EnumerateFileSystemEntries("c:\\temp\\SatteliteDesktop"))
             {
                 DateTimeOffset createTime = File.GetCreationTimeUtc(fileName);
-                if((DateTimeOffset.Now - createTime).TotalMinutes > 10)
+                if ((DateTimeOffset.Now - createTime).TotalMinutes > 10)
                 {
                     File.Delete(fileName);
                 }
