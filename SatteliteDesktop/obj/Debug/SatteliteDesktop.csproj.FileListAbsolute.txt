@@ -1,0 +1,7 @@
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\bin\Debug\SatteliteDesktop.exe.config
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\bin\Debug\SatteliteDesktop.exe
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\bin\Debug\SatteliteDesktop.pdb
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\obj\Debug\SatteliteDesktop.csprojAssemblyReference.cache
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\obj\Debug\SatteliteDesktop.csproj.CoreCompileInputs.cache
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\obj\Debug\SatteliteDesktop.exe
+C:\Users\drew_c\Dropbox\WorkAndHome\SatteliteDesktop\SatteliteDesktop\obj\Debug\SatteliteDesktop.pdb
